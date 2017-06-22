@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D3878DE1EFB716800C1D019 /* UtilTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3878DD1EFB716800C1D019 /* UtilTool.m */; };
+		7D3878E11EFB717C00C1D019 /* AppUtilTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3878E01EFB717C00C1D019 /* AppUtilTool.m */; };
+		7D3878E41EFBAB7100C1D019 /* MMLocationAuthorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3878E31EFBAB7100C1D019 /* MMLocationAuthorManager.m */; };
 		7D9030AA1EFA579A0016BD96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9030A91EFA579A0016BD96 /* main.m */; };
 		7D9030AD1EFA579A0016BD96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9030AC1EFA579A0016BD96 /* AppDelegate.m */; };
 		7D9030B01EFA579B0016BD96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9030AF1EFA579A0016BD96 /* ViewController.m */; };
@@ -37,6 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D3878DC1EFB716800C1D019 /* UtilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilTool.h; sourceTree = "<group>"; };
+		7D3878DD1EFB716800C1D019 /* UtilTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilTool.m; sourceTree = "<group>"; };
+		7D3878DF1EFB717C00C1D019 /* AppUtilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtilTool.h; sourceTree = "<group>"; };
+		7D3878E01EFB717C00C1D019 /* AppUtilTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtilTool.m; sourceTree = "<group>"; };
+		7D3878E21EFBAB7100C1D019 /* MMLocationAuthorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLocationAuthorManager.h; sourceTree = "<group>"; };
+		7D3878E31EFBAB7100C1D019 /* MMLocationAuthorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLocationAuthorManager.m; sourceTree = "<group>"; };
 		7D9030A51EFA579A0016BD96 /* Author.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Author.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9030A91EFA579A0016BD96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D9030AB1EFA579A0016BD96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -216,6 +225,10 @@
 			isa = PBXGroup;
 			children = (
 				7D9D99DA1EFA6ECB00FBA508 /* MMSystemAuthorManager */,
+				7D3878DC1EFB716800C1D019 /* UtilTool.h */,
+				7D3878DD1EFB716800C1D019 /* UtilTool.m */,
+				7D3878DF1EFB717C00C1D019 /* AppUtilTool.h */,
+				7D3878E01EFB717C00C1D019 /* AppUtilTool.m */,
 			);
 			path = "Tools(工具类)";
 			sourceTree = "<group>";
@@ -225,6 +238,8 @@
 			children = (
 				7D9D99DB1EFA6EF200FBA508 /* MMSystemAuthorManager.h */,
 				7D9D99DC1EFA6EF200FBA508 /* MMSystemAuthorManager.m */,
+				7D3878E21EFBAB7100C1D019 /* MMLocationAuthorManager.h */,
+				7D3878E31EFBAB7100C1D019 /* MMLocationAuthorManager.m */,
 				7D9D99DE1EFA707C00FBA508 /* UIAlertController+Window.h */,
 				7D9D99DF1EFA707C00FBA508 /* UIAlertController+Window.m */,
 				7D9D99E11EFA721E00FBA508 /* MMSystemAuthorMacros.h */,
@@ -366,8 +381,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D9030B01EFA579B0016BD96 /* ViewController.m in Sources */,
+				7D3878DE1EFB716800C1D019 /* UtilTool.m in Sources */,
 				7D9030AD1EFA579A0016BD96 /* AppDelegate.m in Sources */,
 				7D9030AA1EFA579A0016BD96 /* main.m in Sources */,
+				7D3878E11EFB717C00C1D019 /* AppUtilTool.m in Sources */,
+				7D3878E41EFBAB7100C1D019 /* MMLocationAuthorManager.m in Sources */,
 				7D9D99E01EFA707C00FBA508 /* UIAlertController+Window.m in Sources */,
 				7D9D99DD1EFA6EF200FBA508 /* MMSystemAuthorManager.m in Sources */,
 			);

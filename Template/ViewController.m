@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "MMSystemAuthorManager.h"
+#import "UtilTool.h"
 
 static NSString * const kIdentifier = @"CellIdentifier";
 
@@ -24,6 +25,7 @@ static NSString * const kIdentifier = @"CellIdentifier";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Author";
+    [UtilTool appIcon];
     [self.titles addObjectsFromArray:@[@"联网状态监测",
                                       @"相册权限",
                                       @"相机权限",
@@ -60,14 +62,9 @@ static NSString * const kIdentifier = @"CellIdentifier";
 
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.titles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,6 +80,19 @@ static NSString * const kIdentifier = @"CellIdentifier";
     NSString *detailTitles = self.detailTitles[row];
     cell.textLabel.text = title;
     cell.detailTextLabel.text = detailTitles;
+    
+    if ([detailTitles isEqualToString:@"已授权"])
+    {
+        cell.detailTextLabel.textColor = [UIColor greenColor];
+    }
+    else if ([detailTitles isEqualToString:@"被拒绝了把，哈哈"])
+    {
+        cell.detailTextLabel.textColor = [UIColor redColor];
+    }
+    else
+    {
+        cell.detailTextLabel.textColor = [UIColor grayColor];
+    }
     return cell;
 }
 
@@ -95,6 +105,8 @@ static NSString * const kIdentifier = @"CellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak __typeof(self)weakSelf = self;
+    NSInteger row = indexPath.row;
     switch (indexPath.row) {
         case 0:
         {
@@ -103,22 +115,70 @@ static NSString * const kIdentifier = @"CellIdentifier";
             break;
         case 1:
         {
-            
+            [MMSystemAuthorManager authorCheckForAlbum:^(BOOL granted) {
+                if (granted)
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"已授权"];
+                }
+                else
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"被拒绝了把，哈哈"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.table reloadData];
+                });
+            }];
         }
             break;
         case 2:
         {
-            
+            [MMSystemAuthorManager authorCheckForVideo:^(BOOL granted) {
+                if (granted)
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"已授权"];
+                }
+                else
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"被拒绝了把，哈哈"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.table reloadData];
+                });
+            }];
         }
             break;
         case 3:
         {
-            
+            [MMSystemAuthorManager authorCheckForAudio:^(BOOL granted) {
+                if (granted)
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"已授权"];
+                }
+                else
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"被拒绝了把，哈哈"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.table reloadData];
+                });
+            }];
         }
             break;
         case 4:
         {
-            
+            [MMSystemAuthorManager authorCheckForLocation:^(BOOL granted) {
+                if (granted)
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"已授权"];
+                }
+                else
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"被拒绝了把，哈哈"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.table reloadData];
+                });
+            }];
         }
             break;
         case 5:
@@ -128,17 +188,53 @@ static NSString * const kIdentifier = @"CellIdentifier";
             break;
         case 6:
         {
-            
+            [MMSystemAuthorManager authorCheckForContact:^(BOOL granted) {
+                if (granted)
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"已授权"];
+                }
+                else
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"被拒绝了把，哈哈"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.table reloadData];
+                });
+            }];
         }
             break;
         case 7:
         {
-            
+            [MMSystemAuthorManager authorCheckForEvent:^(BOOL granted) {
+                if (granted)
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"已授权"];
+                }
+                else
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"被拒绝了把，哈哈"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.table reloadData];
+                });
+            }];
         }
             break;
         case 8:
         {
-            
+            [MMSystemAuthorManager authorCheckForReminder:^(BOOL granted) {
+                if (granted)
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"已授权"];
+                }
+                else
+                {
+                    [weakSelf.detailTitles replaceObjectAtIndex:row withObject:@"被拒绝了把，哈哈"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.table reloadData];
+                });
+            }];
         }
             break;
         default:
