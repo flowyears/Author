@@ -13,6 +13,7 @@
 #import <Contacts/Contacts.h>
 #import <EventKit/EventKit.h>//日历备忘录
 #import "MMLocationAuthorManager.h"
+#import "MMNotificationAuthorManager.h"
 #import "UIAlertController+Window.h"
 
 
@@ -87,7 +88,7 @@
 {
     __block BOOL isAuthor = NO;
     
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
     
     switch (authStatus)
     {
@@ -113,7 +114,7 @@
             break;
         case AVAuthorizationStatusNotDetermined:
         {
-            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
                 
                 if (granted)
                 {// 用户同意授权
@@ -373,6 +374,89 @@
 {
     [[MMLocationAuthorManager shareInstance] authorCheckForLocation:grantBlock];
 }
+
+#pragma mark - 推送
+/**
+ 推送权限
+ */
++ (void)authorCheckForNotificaiton
+{
+    [[MMNotificationAuthorManager shareInstance] authorCheckForNotification];
+}
+
+#pragma mark - 网络权限检测
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
++ (void)authorCheckForNetwork:(GrantBlock)grantBlock
+{
+   __block BOOL isAuthor = NO;
+    CTCellularData *cellularData = [[CTCellularData alloc]init];
+    CTCellularDataRestrictedState state = cellularData.restrictedState;
+    switch (state) {
+        case kCTCellularDataRestricted://蜂窝权限被关闭，有 网络权限完全关闭 or 只有WiFi权限 两种情况
+        {
+            NSString *title = [NSString stringWithFormat:@"已为\"%@\"关闭蜂窝网络权权限",[[self class] appName]];
+            [[self class] showAuthorTipsWithTitle:title
+                                          message:@"您可以在\"设置\"中为此应用打开蜂窝网络权权限"];
+        }
+            break;
+        case kCTCellularDataNotRestricted://蜂窝权限开启
+        {
+            isAuthor = YES;
+        }
+            break;
+            case kCTCellularDataRestrictedStateUnknown://权限未知
+        {
+        }
+            break;
+        default:
+            break;
+    }
+    if (grantBlock)
+    {
+        grantBlock(isAuthor);
+    }
+}
+
+
+
+/**
+ 实时监测联网状态
+ */
++ (void)authorCheckNetworkMonitor
+{
+    CTCellularData *cellularData = [[CTCellularData alloc]init];
+    cellularData.cellularDataRestrictionDidUpdateNotifier =  ^(CTCellularDataRestrictedState state){
+        //获取联网状态
+        switch (state) {
+            case kCTCellularDataRestricted:
+            {
+                NSString *title = [NSString stringWithFormat:@"已为\"%@\"关闭蜂窝网络权权限",[[self class] appName]];
+                [[self class] showAuthorTipsWithTitle:title
+                                              message:@"您可以在\"设置\"中为此应用打开蜂窝网络权权限"];
+            }
+                break;
+            case kCTCellularDataNotRestricted:
+                NSLog(@"Not Restricted");
+                break;
+            case kCTCellularDataRestrictedStateUnknown:
+                NSLog(@"Unknown");
+                break;
+            default:
+                break;
+        };
+    };
+}
+
+/*
+ CTCellularData 使用时需要注意的关键点： 
+ 
+ CTCellularData只能检测蜂窝权限，不能检测WiFi权限。
+ 一个CTCellularData实例新建时，restrictedState是kCTCellularDataRestrictedStateUnknown，之后在cellularDataRestrictionDidUpdateNotifier里会有一次回调，此时才能获取到正确的权限状态。
+ 当用户在设置里更改了app的权限时，cellularDataRestrictionDidUpdateNotifier会收到回调，如果要停止监听，必须将cellularDataRestrictionDidUpdateNotifier设置为nil。
+ 赋值给cellularDataRestrictionDidUpdateNotifier的block并不会自动释放，即便你给一个局部变量的CTCellularData实例设置监听，当权限更改时，还是会收到回调，所以记得将block置nil。
+ */
+#endif
+
 #pragma mark - Class Method
 + (NSString *)appName
 {

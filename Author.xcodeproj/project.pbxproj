@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D1FE40F1EFCAEDB005A9976 /* MMNotificationAuthorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FE40E1EFCAEDB005A9976 /* MMNotificationAuthorManager.m */; };
 		7D3878DE1EFB716800C1D019 /* UtilTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3878DD1EFB716800C1D019 /* UtilTool.m */; };
 		7D3878E11EFB717C00C1D019 /* AppUtilTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3878E01EFB717C00C1D019 /* AppUtilTool.m */; };
 		7D3878E41EFBAB7100C1D019 /* MMLocationAuthorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3878E31EFBAB7100C1D019 /* MMLocationAuthorManager.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D1FE40D1EFCAEDB005A9976 /* MMNotificationAuthorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNotificationAuthorManager.h; sourceTree = "<group>"; };
+		7D1FE40E1EFCAEDB005A9976 /* MMNotificationAuthorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNotificationAuthorManager.m; sourceTree = "<group>"; };
 		7D3878DC1EFB716800C1D019 /* UtilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilTool.h; sourceTree = "<group>"; };
 		7D3878DD1EFB716800C1D019 /* UtilTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilTool.m; sourceTree = "<group>"; };
 		7D3878DF1EFB717C00C1D019 /* AppUtilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtilTool.h; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 				7D9D99DC1EFA6EF200FBA508 /* MMSystemAuthorManager.m */,
 				7D3878E21EFBAB7100C1D019 /* MMLocationAuthorManager.h */,
 				7D3878E31EFBAB7100C1D019 /* MMLocationAuthorManager.m */,
+				7D1FE40D1EFCAEDB005A9976 /* MMNotificationAuthorManager.h */,
+				7D1FE40E1EFCAEDB005A9976 /* MMNotificationAuthorManager.m */,
 				7D9D99DE1EFA707C00FBA508 /* UIAlertController+Window.h */,
 				7D9D99DF1EFA707C00FBA508 /* UIAlertController+Window.m */,
 				7D9D99E11EFA721E00FBA508 /* MMSystemAuthorMacros.h */,
@@ -384,6 +389,7 @@
 				7D3878DE1EFB716800C1D019 /* UtilTool.m in Sources */,
 				7D9030AD1EFA579A0016BD96 /* AppDelegate.m in Sources */,
 				7D9030AA1EFA579A0016BD96 /* main.m in Sources */,
+				7D1FE40F1EFCAEDB005A9976 /* MMNotificationAuthorManager.m in Sources */,
 				7D3878E11EFB717C00C1D019 /* AppUtilTool.m in Sources */,
 				7D3878E41EFBAB7100C1D019 /* MMLocationAuthorManager.m in Sources */,
 				7D9D99E01EFA707C00FBA508 /* UIAlertController+Window.m in Sources */,

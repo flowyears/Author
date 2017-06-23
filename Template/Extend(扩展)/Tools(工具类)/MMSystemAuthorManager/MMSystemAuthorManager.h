@@ -55,6 +55,17 @@
  定位权限
  */
 + (void)authorCheckForLocation:(GrantBlock)grantBlock;
+#pragma mark - 推送
+/**
+ 推送权限
+ */
++ (void)authorCheckForNotificaiton;
+
+#pragma mark - 网络权限检测
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_0
++ (void)authorCheckForNetwork:(GrantBlock)grantBlock;
++ (void)authorCheckNetworkMonitor;
+#endif
 #pragma mark - Class Method
 + (NSString *)appName;
 + (void)showAuthorTipsWithTitle:(NSString *)title message:(NSString *)message;

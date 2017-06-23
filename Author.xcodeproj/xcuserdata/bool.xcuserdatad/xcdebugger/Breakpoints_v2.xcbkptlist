@@ -2,4 +2,118 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Template/Extend(&#x6269;&#x5c55;)/Tools(&#x5de5;&#x5177;&#x7c7b;)/MMSystemAuthorManager/MMLocationAuthorManager.m"
+            timestampString = "519875138.551391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-authorCheckForLocation:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Template/Extend(&#x6269;&#x5c55;)/Tools(&#x5de5;&#x5177;&#x7c7b;)/MMSystemAuthorManager/MMSystemAuthorManager.m"
+            timestampString = "519882007.847465"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "+authorCheckForMediaType:grantBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Template/Extend(&#x6269;&#x5c55;)/Tools(&#x5de5;&#x5177;&#x7c7b;)/MMSystemAuthorManager/MMSystemAuthorManager.m"
+            timestampString = "519882007.847465"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "+authorCheckForMediaType:grantBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Template/Extend(&#x6269;&#x5c55;)/Tools(&#x5de5;&#x5177;&#x7c7b;)/MMSystemAuthorManager/MMSystemAuthorManager.m"
+            timestampString = "519882007.847465"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "+authorCheckForMediaType:grantBlock:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[MMSystemAuthorManager authorCheckForMediaType:grantBlock:]"
+                  moduleName = "Author"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bool/Documents/shenjx/mycode/Author/Template/Extend(%E6%89%A9%E5%B1%95)/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/MMSystemAuthorManager/MMSystemAuthorManager.m"
+                  timestampString = "519892313.751598"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "864">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__60+[MMSystemAuthorManager authorCheckForMediaType:grantBlock:]_block_invoke"
+                  moduleName = "Author"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bool/Documents/shenjx/mycode/Author/Template/Extend(%E6%89%A9%E5%B1%95)/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/MMSystemAuthorManager/MMSystemAuthorManager.m"
+                  timestampString = "519892313.75375"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Template/Extend(&#x6269;&#x5c55;)/Tools(&#x5de5;&#x5177;&#x7c7b;)/MMSystemAuthorManager/MMSystemAuthorManager.m"
+            timestampString = "519892296.156129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
+            landmarkName = "+authorCheckForNetwork:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

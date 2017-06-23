@@ -26,24 +26,24 @@ static NSString * const kIdentifier = @"CellIdentifier";
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Author";
     [UtilTool appIcon];
-    [self.titles addObjectsFromArray:@[@"联网状态监测",
-                                      @"相册权限",
-                                      @"相机权限",
-                                      @"麦克风权限",
-                                      @"定位权限",
-                                      @"推送权限",
-                                      @"通讯录权限",
-                                      @"日历权限",
-                                       @"备忘录权限"]];
+    [self.titles addObjectsFromArray:@[@"相册权限",
+                                       @"相机权限",
+                                       @"麦克风权限",
+                                       @"定位权限",
+                                       @"通讯录权限",
+                                       @"日历权限",
+                                       @"备忘录权限",
+                                       @"推送权限",
+                                       @"联网状态监测"]];
     [self.detailTitles addObjectsFromArray:@[@"别点我",
-                                       @"别点我",
-                                       @"别点我",
-                                       @"别点我",
-                                       @"别点我",
-                                       @"别点我",
-                                       @"别点我",
-                                       @"别点我",
-                                       @"别点我"]];
+                                             @"别点我",
+                                             @"别点我",
+                                             @"别点我",
+                                             @"别点我",
+                                             @"别点我",
+                                             @"别点我",
+                                             @"我没回调",
+                                             @"我没回调"]];
     [self.view addSubview:self.table];
 }
 
@@ -77,7 +77,22 @@ static NSString * const kIdentifier = @"CellIdentifier";
     
     NSInteger row = [indexPath row];
     NSString *title = self.titles[row];
-    NSString *detailTitles = self.detailTitles[row];
+   __block NSString *detailTitles = self.detailTitles[row];
+    
+    if (row == 8)
+    {
+        [MMSystemAuthorManager authorCheckForNetwork:^(BOOL granted) {
+            if (granted)
+            {
+                detailTitles = @"有网络权限";
+            }
+            else
+            {
+                detailTitles = @"无网络权限";
+            }
+        }];
+    }
+    
     cell.textLabel.text = title;
     cell.detailTextLabel.text = detailTitles;
     
@@ -105,15 +120,12 @@ static NSString * const kIdentifier = @"CellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     __weak __typeof(self)weakSelf = self;
     NSInteger row = indexPath.row;
     switch (indexPath.row) {
-        case 0:
-        {
         
-        }
-            break;
-        case 1:
+        case 0:
         {
             [MMSystemAuthorManager authorCheckForAlbum:^(BOOL granted) {
                 if (granted)
@@ -130,7 +142,7 @@ static NSString * const kIdentifier = @"CellIdentifier";
             }];
         }
             break;
-        case 2:
+        case 1:
         {
             [MMSystemAuthorManager authorCheckForVideo:^(BOOL granted) {
                 if (granted)
@@ -147,7 +159,7 @@ static NSString * const kIdentifier = @"CellIdentifier";
             }];
         }
             break;
-        case 3:
+        case 2:
         {
             [MMSystemAuthorManager authorCheckForAudio:^(BOOL granted) {
                 if (granted)
@@ -164,7 +176,7 @@ static NSString * const kIdentifier = @"CellIdentifier";
             }];
         }
             break;
-        case 4:
+        case 3:
         {
             [MMSystemAuthorManager authorCheckForLocation:^(BOOL granted) {
                 if (granted)
@@ -181,12 +193,7 @@ static NSString * const kIdentifier = @"CellIdentifier";
             }];
         }
             break;
-        case 5:
-        {
-            
-        }
-            break;
-        case 6:
+        case 4:
         {
             [MMSystemAuthorManager authorCheckForContact:^(BOOL granted) {
                 if (granted)
@@ -203,7 +210,7 @@ static NSString * const kIdentifier = @"CellIdentifier";
             }];
         }
             break;
-        case 7:
+        case 5:
         {
             [MMSystemAuthorManager authorCheckForEvent:^(BOOL granted) {
                 if (granted)
@@ -220,7 +227,7 @@ static NSString * const kIdentifier = @"CellIdentifier";
             }];
         }
             break;
-        case 8:
+        case 6:
         {
             [MMSystemAuthorManager authorCheckForReminder:^(BOOL granted) {
                 if (granted)
@@ -235,6 +242,16 @@ static NSString * const kIdentifier = @"CellIdentifier";
                     [weakSelf.table reloadData];
                 });
             }];
+        }
+            break;
+        case 7:
+        {
+            [MMSystemAuthorManager authorCheckForNotificaiton];
+        }
+            break;
+        case 8:
+        {
+            
         }
             break;
         default:

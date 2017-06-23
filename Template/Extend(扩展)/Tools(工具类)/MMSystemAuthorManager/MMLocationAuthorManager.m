@@ -12,7 +12,7 @@
 
 @interface MMLocationAuthorManager ()
 <CLLocationManagerDelegate>
-@property(nonatomic,strong)CLLocationManager *manager;
+@property(nonatomic,strong)CLLocationManager *manager;//必须写成全局变量，否则请求权限的提示框会一闪而过，也不会走delegate
 @property(nonatomic,copy)GrantBlock grantedBlock;
 @end
 @implementation MMLocationAuthorManager
@@ -90,7 +90,7 @@
             break;
         case kCLAuthorizationStatusNotDetermined:
         {
-        
+            return;//修改的时候，这里应该立即终止；在开始获取权限时会进入此代理，完成后也会进入
         }
             break;
         default:
@@ -109,6 +109,7 @@
     if (!_manager)
     {
         _manager = [[CLLocationManager alloc] init];
+        _manager.delegate = self;
     }
     return _manager;
 }
